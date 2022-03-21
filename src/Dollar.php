@@ -2,7 +2,8 @@
 
 namespace App;
 
-class Dollar {
+class Dollar
+{
     public float $amount;
 
     public function __construct(float $number)
@@ -10,7 +11,8 @@ class Dollar {
         $this->amount = $number;
     }
 
-    public function times(float $number): void {
+    public function times(float $number): void
+    {
         $this->amount *= $number;
     }
 }

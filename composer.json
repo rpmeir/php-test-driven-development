@@ -8,9 +8,12 @@
     "scripts": {
         "test": "./vendor/bin/pest",
         "stan": "./vendor/bin/phpstan analyse --level 6 src tests",
+        "cs": "./vendor/bin/phpcs src tests",
+        "cbf": "./vendor/bin/phpcbf src tests",
         "tests": [
             "@test",
-            "@stan"
+            "@stan",
+            "@cs"
         ]
     },
     "authors": [
@@ -21,7 +24,8 @@
     ],
     "require-dev": {
         "pestphp/pest": "^1.21",
-        "phpstan/phpstan": "^1.4"
+        "phpstan/phpstan": "^1.4",
+        "squizlabs/php_codesniffer": "^3.6"
     },
     "config": {
         "allow-plugins": {
