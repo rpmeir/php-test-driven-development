@@ -1,0 +1,15 @@
+{
+    "name": "rpmeir/tdd",
+    "autoload": {
+        "psr-4": {
+            "Rpmeir\\Tdd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Pires Meira",
+            "email": "rpmeir@gmail.com"
+        }
+    ],
+    "require": {}
+}
