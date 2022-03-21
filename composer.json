@@ -2,11 +2,16 @@
     "name": "rpmeir/tdd",
     "autoload": {
         "psr-4": {
-            "Rpmeir\\Tdd\\": "src/"
+            "App\\": "src/"
         }
     },
     "scripts": {
-        "test": "./vendor/bin/pest"
+        "test": "./vendor/bin/pest",
+        "stan": "./vendor/bin/phpstan analyse --level 6 src tests",
+        "tests": [
+            "@test",
+            "@stan"
+        ]
     },
     "authors": [
         {
@@ -15,7 +20,8 @@
         }
     ],
     "require-dev": {
-        "pestphp/pest": "^1.21"
+        "pestphp/pest": "^1.21",
+        "phpstan/phpstan": "^1.4"
     },
     "config": {
         "allow-plugins": {
