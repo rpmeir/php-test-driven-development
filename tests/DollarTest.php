@@ -14,3 +14,12 @@ test(
         expect($product->amount)->toEqual(15);
     }
 );
+
+test(
+    'Deve retornar true quando dollars com mesmo valor são comparados',
+    function () {
+        $five = new Dollar(5);
+        expect($five->equals(new Dollar(5)))->toBeTruthy();
+        expect($five->equals(new Dollar(6)))->toBeFalsy();
+    }
+);
