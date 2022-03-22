@@ -8,8 +8,8 @@
     "scripts": {
         "test": "./vendor/bin/pest",
         "stan": "./vendor/bin/phpstan analyse --level 6 src tests",
-        "cs": "./vendor/bin/phpcs src tests",
-        "cbf": "./vendor/bin/phpcbf src tests",
+        "cs": "./vendor/bin/phpcs --standard=PSR12 src tests",
+        "cbf": "./vendor/bin/phpcbf --standard=PSR12 src tests",
         "tests": [
             "@test",
             "@stan",
