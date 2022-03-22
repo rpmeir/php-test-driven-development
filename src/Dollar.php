@@ -11,8 +11,8 @@ class Dollar
         $this->amount = $number;
     }
 
-    public function times(float $number): void
+    public function times(float $number): Dollar
     {
-        $this->amount *= $number;
+        return new Dollar($this->amount * $number);
     }
 }
