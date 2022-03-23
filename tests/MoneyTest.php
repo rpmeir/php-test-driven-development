@@ -3,13 +3,23 @@
 namespace Tests;
 
 use App\Dollar;
+use App\Euro;
 
 test(
-    'Deve retornar 10 quando multiplicar 5 por 2',
+    'Deve retornar o valor multiplo de 5 para 2 e 3 em dolares',
     function () {
         $five = new Dollar(5);
         expect($five->times(2)->equals(new Dollar(10)))->toBeTruthy();
         expect($five->times(3)->equals(new Dollar(15)))->toBeTruthy();
+    }
+);
+
+test(
+    'Deve retornar o valor multiplo de 5 para 2 e 3 em euros',
+    function () {
+        $five = new Euro(5);
+        expect($five->times(2)->equals(new Euro(10)))->toBeTruthy();
+        expect($five->times(3)->equals(new Euro(15)))->toBeTruthy();
     }
 );
 
