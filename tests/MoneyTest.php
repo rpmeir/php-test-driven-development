@@ -29,5 +29,8 @@ test(
         $five = new Dollar(5);
         expect($five->equals(new Dollar(5)))->toBeTruthy();
         expect($five->equals(new Dollar(6)))->toBeFalsy();
+        $five = new Euro(5);
+        expect($five->equals(new Euro(5)))->toBeTruthy();
+        expect($five->equals(new Euro(6)))->toBeFalsy();
     }
 );
