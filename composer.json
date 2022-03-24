@@ -22,7 +22,6 @@
         }
     },
     "scripts": {
-        "cbf": "./vendor/bin/phpcbf --standard=PSR12 src tests",
         "test:pest": "./vendor/bin/pest",
         "test:cbf": "./vendor/bin/phpcbf --standard=PSR12 src tests",
         "test:stan": "./vendor/bin/phpstan analyse --level 6 src tests",
