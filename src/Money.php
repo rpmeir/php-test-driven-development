@@ -13,11 +13,9 @@ class Money
 
     public function equals(Money $other): bool
     {
-        return $this->amount === $other->amount;
-    }
-
-    public function times(float $number): Money
-    {
-        return new Money($this->amount * $number);
+        if ($this != $other) {
+            return false;
+        }
+        return $this->amount == $other->amount;
     }
 }
