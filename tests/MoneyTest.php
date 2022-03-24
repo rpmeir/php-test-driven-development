@@ -28,7 +28,7 @@ test(
 );
 
 test(
-    'Deve retornar true quando o money com mesmo valor são comparados',
+    'Deve retornar true quando o money com mesmo valor e tipo são comparados',
     function () {
         $fiveDollars = new Dollar(5);
         expect($fiveDollars->equals(new Dollar(5)))->toBeTruthy();
