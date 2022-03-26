@@ -24,12 +24,11 @@
     },
     "scripts": {
         "test:pest": "./vendor/bin/pest --colors=always",
-        "test:cbf": "./vendor/bin/phpcbf --standard=PSR12 src tests",
         "test:stan": "./vendor/bin/phpstan analyse --level 6 src tests",
         "test:cs": "./vendor/bin/phpcs --standard=PSR12 src tests",
+        "test:cbf": "./vendor/bin/phpcbf --standard=PSR12 src tests",
         "test": [
             "@test:pest",
-            "@test:cbf",
             "@test:stan",
             "@test:cs"
         ]

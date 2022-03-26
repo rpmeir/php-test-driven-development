@@ -18,4 +18,14 @@ class Money
         }
         return $this->amount == $other->amount;
     }
+
+    public static function dollar(float $number): Dollar
+    {
+        return new Dollar($number);
+    }
+
+    public static function euro(float $number): Euro
+    {
+        return new Euro($number);
+    }
 }
