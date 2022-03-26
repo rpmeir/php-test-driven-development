@@ -21,14 +21,14 @@ class Money
         return $this->amount == $other->amount;
     }
 
-    public static function dollar(float $number): Dollar
+    public static function dollar(float $number): Money
     {
-        return new Dollar($number, 'USD');
+        return new Money($number, 'USD');
     }
 
-    public static function euro(float $number): Euro
+    public static function euro(float $number): Money
     {
-        return new Euro($number, 'EUR');
+        return new Money($number, 'EUR');
     }
 
     public function currency(): string
