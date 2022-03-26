@@ -5,7 +5,7 @@ namespace Tests;
 use App\Money;
 
 test(
-    'Deve multiplicar corretamente os dolares',
+    'Deve multiplicar corretamente os Dolares',
     function () {
         $five = Money::dollar(5);
         $ten = $five->times(2);
@@ -36,5 +36,15 @@ test(
         expect($fiveEuros->equals(Money::euro(5)))->toBeTruthy();
         expect($fiveEuros->equals(Money::euro(6)))->toBeFalsy();
         expect($fiveDollars->equals($fiveEuros))->toBeFalsy();
+    }
+);
+
+test(
+    'Deve certificar o tipo correto de moeda',
+    function () {
+        $dollar = Money::dollar(1);
+        expect($dollar->currency())->toEqual('USD');
+        $euro = Money::euro(1);
+        expect($euro->currency())->toEqual('EUR');
     }
 );

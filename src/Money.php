@@ -2,13 +2,15 @@
 
 namespace App;
 
-class Money
+abstract class Money
 {
     protected float $amount;
+    protected string $currency;
 
-    public function __construct(float $number)
+    public function __construct(float $number, string $currency)
     {
         $this->amount = $number;
+        $this->currency = $currency;
     }
 
     public function equals(Money $other): bool
@@ -21,11 +23,18 @@ class Money
 
     public static function dollar(float $number): Dollar
     {
-        return new Dollar($number);
+        return new Dollar($number, 'USD');
     }
 
     public static function euro(float $number): Euro
     {
-        return new Euro($number);
+        return new Euro($number, 'EUR');
     }
+
+    public function currency(): string
+    {
+        return $this->currency;
+    }
+
+    abstract public function times(float $number): Money;
 }

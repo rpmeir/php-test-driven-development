@@ -4,13 +4,13 @@ namespace App;
 
 class Euro extends Money
 {
-    public function __construct(float $number)
+    public function __construct(float $number, string $currency)
     {
-        parent::__construct($number);
+        parent::__construct($number, $currency);
     }
 
     public function times(float $number): Euro
     {
-        return new Euro($this->amount * $number);
+        return Money::euro($this->amount * $number);
     }
 }
