@@ -9,8 +9,8 @@ class Euro extends Money
         parent::__construct($number, $currency);
     }
 
-    public function times(float $number): Euro
+    public function times(float $number): Money
     {
-        return Money::euro($this->amount * $number);
+        return new Euro($this->amount * $number, $this->currency);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-abstract class Money
+class Money
 {
     protected float $amount;
     protected string $currency;
@@ -15,7 +15,7 @@ abstract class Money
 
     public function equals(Money $other): bool
     {
-        if ($this != $other) {
+        if ($this->currency != $other->currency) {
             return false;
         }
         return $this->amount == $other->amount;
@@ -36,5 +36,8 @@ abstract class Money
         return $this->currency;
     }
 
-    abstract public function times(float $number): Money;
+    public function times(float $number): Money
+    {
+        return new Money($this->amount * $number, $this->currency);
+    }
 }

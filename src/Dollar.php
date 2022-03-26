@@ -8,9 +8,4 @@ class Dollar extends Money
     {
         parent::__construct($number, $currency);
     }
-
-    public function times(float $number): Dollar
-    {
-        return Money::dollar($this->amount * $number);
-    }
 }
