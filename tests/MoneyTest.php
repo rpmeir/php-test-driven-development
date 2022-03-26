@@ -38,6 +38,8 @@ test(
         expect($fiveDollars->equals($fiveEuros))->toBeFalsy();
         $dollarMoney = new Money(5, 'USD');
         expect($dollarMoney->equals($fiveDollars))->toBeTruthy();
+        $euroMoney = new Money(5, 'EUR');
+        expect($euroMoney->equals($fiveEuros))->toBeTruthy();
     }
 );
 
