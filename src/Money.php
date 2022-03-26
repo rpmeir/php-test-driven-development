@@ -4,8 +4,8 @@ namespace App;
 
 class Money
 {
-    protected float $amount;
-    protected string $currency;
+    private float $amount;
+    private string $currency;
 
     public function __construct(float $number, string $currency)
     {
