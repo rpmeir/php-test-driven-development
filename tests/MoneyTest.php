@@ -35,3 +35,12 @@ test(
         expect($euro->currency())->toEqual('EUR');
     }
 );
+
+test(
+    'Deve efetuar a soma de mesmas moeda',
+    function () {
+        $dollar = Money::dollar(5);
+        $sum = $dollar->plus(Money::dollar(5));
+        expect($sum)->toEqual(Money::dollar(10))->toBeTruthy();
+    }
+);

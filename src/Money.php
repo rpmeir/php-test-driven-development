@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Exception;
+
 class Money
 {
     private float $amount;
@@ -39,5 +41,13 @@ class Money
     public function times(float $number): Money
     {
         return new Money($this->amount * $number, $this->currency);
+    }
+
+    public function plus(Money $addend): Money
+    {
+        if ($this->currency() != $addend->currency()) {
+            throw new Exception('Different money currency');
+        }
+        return new Money($this->amount + $addend->amount, $this->currency());
     }
 }
