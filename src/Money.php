@@ -4,7 +4,7 @@ namespace App;
 
 use Exception;
 
-class Money
+class Money implements Expression
 {
     private float $amount;
     private string $currency;
@@ -43,7 +43,7 @@ class Money
         return new Money($this->amount * $number, $this->currency);
     }
 
-    public function plus(Money $addend): Money
+    public function plus(Money $addend): Expression
     {
         if ($this->currency() != $addend->currency()) {
             throw new Exception('Different money currency');

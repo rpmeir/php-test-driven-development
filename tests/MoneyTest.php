@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Bank;
 use App\Money;
 
 test(
@@ -40,7 +41,9 @@ test(
     'Deve efetuar a soma de mesmas moeda',
     function () {
         $dollar = Money::dollar(5);
-        $sum = $dollar->plus(Money::dollar(5));
-        expect($sum)->toEqual(Money::dollar(10))->toBeTruthy();
+        $sum = $dollar->plus($dollar);
+        $bank = new Bank();
+        $reduced = $bank->reduce($sum, 'USD');
+        expect($reduced)->toEqual(Money::dollar(10))->toBeTruthy();
     }
 );
