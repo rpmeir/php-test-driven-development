@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Bank;
 use App\Money;
+use App\Sum;
 
 test(
     'Deve multiplicar corretamente o Money',
@@ -40,10 +41,39 @@ test(
 test(
     'Deve efetuar a soma de mesmas moeda',
     function () {
-        $dollar = Money::dollar(5);
-        $sum = $dollar->plus($dollar);
+        $five = Money::dollar(5);
+        $sum = $five->plus($five);
         $bank = new Bank();
         $reduced = $bank->reduce($sum, 'USD');
         expect($reduced)->toEqual(Money::dollar(10))->toBeTruthy();
+    }
+);
+
+test(
+    'Deve retornar uma soma quando plus é usado',
+    function () {
+        $five = Money::dollar(5);
+        $sum = $five->plus($five);
+        expect($sum->augend)->toEqual($five);
+        expect($sum->addend)->toEqual($five);
+    }
+);
+
+test(
+    'Deve reduzir uma soma',
+    function () {
+        $sum = new Sum(Money::dollar(3), Money::dollar(4));
+        $bank = new Bank();
+        $result = $bank->reduce($sum, 'USD');
+        expect($result)->toEqual(Money::dollar(7));
+    }
+);
+
+test(
+    'Deve reduzir de um dinheiro',
+    function () {
+        $bank = new Bank;
+        $result = $bank->reduce(Money::dollar(1), 'USD');
+        expect($result)->toEqual(Money::dollar(1));
     }
 );

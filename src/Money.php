@@ -48,6 +48,15 @@ class Money implements Expression
         if ($this->currency() != $addend->currency()) {
             throw new Exception('Different money currency');
         }
-        return new Money($this->amount + $addend->amount, $this->currency());
+        return new Sum($this, $addend);
+    }
+
+    public function reduce(string $to): Money {
+        return $this;
+    }
+
+    public function amount(): float
+    {
+        return $this->amount;
     }
 }
