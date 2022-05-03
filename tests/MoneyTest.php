@@ -77,3 +77,13 @@ test(
         expect($result)->toEqual(Money::dollar(1));
     }
 );
+
+test(
+    'Deve reduzir de diferentes moedas',
+    function () {
+        $bank = new Bank;
+        $bank->addRate('EUR', 'USD', 2);
+        $result = $bank->reduce(Money::euro(2), 'USD');
+        expect($result)->toEqual(Money::dollar(1));
+    }
+);
